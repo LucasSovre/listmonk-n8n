@@ -1,0 +1,21 @@
+{
+	"node": "n8n-nodes-base.Listmonk",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"mail",
+        "marketing"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": ""
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": ""
+			}
+		]
+	}
+}
