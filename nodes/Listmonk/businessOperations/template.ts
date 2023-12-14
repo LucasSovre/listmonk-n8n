@@ -1,8 +1,8 @@
 import type { INodeProperties } from 'n8n-workflow';
 
 export const templateOperations: INodeProperties[] = [
-    {
-        displayName: 'Operation',
+	{
+		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
@@ -11,21 +11,21 @@ export const templateOperations: INodeProperties[] = [
 				resource: ['template'],
 			},
 		},
-        options: [
+		options: [
 			{
-                name: 'Create',
-                value: 'createTemplate',
-                action: 'Create a template',
-                routing: {
-                    request: {
-                        method: 'POST',
-                        url: '/templates',
-                        body: `={{JSON.stringify({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body})}}`,
-                        encoding: 'json',
-                        json: true
-                    }
-                }
-            },
+				name: 'Create',
+				value: 'createTemplate',
+				action: 'Create a template',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '/templates',
+						body: `={{JSON.stringify({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body})}}`,
+						encoding: 'json',
+						json: true,
+					},
+				},
+			},
 			{
 				name: 'Delete Template by ID',
 				value: 'deleteTemplate',
@@ -37,7 +37,7 @@ export const templateOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
+			{
 				name: 'Get All',
 				value: 'getTemplates',
 				action: 'Get all templates',
@@ -59,7 +59,7 @@ export const templateOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
+			{
 				name: 'Get Template by ID',
 				value: 'getTemplateById',
 				action: 'Get template by id',
@@ -70,21 +70,21 @@ export const templateOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
-                name: 'Modify',
-                value: 'modifyTemplate',
-                action: 'Modify template',
-                routing: {
-                    request: {
-                        method: 'PUT',
-                        url: '=/templates/{{$parameter.id}}',
-                        body: `={{JSON.stringify({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body})}}`,
-                        encoding: 'json',
-                        json: true
-                    }
-                }
-            },
-            {
+			{
+				name: 'Modify',
+				value: 'modifyTemplate',
+				action: 'Modify template',
+				routing: {
+					request: {
+						method: 'PUT',
+						url: '=/templates/{{$parameter.id}}',
+						body: `={{JSON.stringify({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body})}}`,
+						encoding: 'json',
+						json: true,
+					},
+				},
+			},
+			{
 				name: 'Set Template as Default',
 				value: 'setTemplateAsDefault',
 				action: 'Set template as default',
@@ -95,7 +95,7 @@ export const templateOperations: INodeProperties[] = [
 					},
 				},
 			},
-        ],
-        default : "getTemplates"
-    }
+		],
+		default: 'getTemplates',
+	},
 ];

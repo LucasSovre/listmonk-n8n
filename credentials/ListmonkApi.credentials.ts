@@ -1,7 +1,4 @@
-import {
-	ICredentialType,
-	INodeProperties,
-} from 'n8n-workflow';
+import { ICredentialType, INodeProperties } from 'n8n-workflow';
 
 export class ListmonkApi implements ICredentialType {
 	name = 'listmonkApi';
@@ -25,7 +22,7 @@ export class ListmonkApi implements ICredentialType {
 			},
 			default: '',
 		},
-        {
+		{
 			displayName: 'Domain',
 			name: 'domain',
 			type: 'string',

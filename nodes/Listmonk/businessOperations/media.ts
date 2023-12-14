@@ -1,8 +1,8 @@
 import type { INodeProperties } from 'n8n-workflow';
 
 export const mediaOperations: INodeProperties[] = [
-    {
-        displayName: 'Operation',
+	{
+		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
@@ -11,8 +11,8 @@ export const mediaOperations: INodeProperties[] = [
 				resource: ['media'],
 			},
 		},
-        options: [
-            {
+		options: [
+			{
 				name: 'Get',
 				value: 'getMedia',
 				action: 'Get all medias',
@@ -23,7 +23,7 @@ export const mediaOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
+			{
 				name: 'Get Media by ID',
 				value: 'getMediaById',
 				action: 'Get media by id',
@@ -34,7 +34,7 @@ export const mediaOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
+			{
 				name: 'Delete Media by ID',
 				value: 'deleteMedia',
 				action: 'Delete media by id',
@@ -45,7 +45,7 @@ export const mediaOperations: INodeProperties[] = [
 					},
 				},
 			},
-        ],
-        default : "getMedia"
-    }
+		],
+		default: 'getMedia',
+	},
 ];

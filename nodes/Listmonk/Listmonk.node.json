@@ -2,11 +2,7 @@
 	"node": "n8n-nodes-base.Listmonk",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
-	"categories": [
-		"Marketing & Content",
-        "Communication",
-		"Analytics"
-	],
+	"categories": ["Marketing & Content", "Communication", "Analytics"],
 	"resources": {
 		"credentialDocumentation": [
 			{

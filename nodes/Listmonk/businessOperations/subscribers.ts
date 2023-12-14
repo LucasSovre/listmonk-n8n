@@ -1,8 +1,8 @@
 import type { INodeProperties } from 'n8n-workflow';
 
 export const subscriberOperations: INodeProperties[] = [
-    {
-        displayName: 'Operation',
+	{
+		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
@@ -11,21 +11,21 @@ export const subscriberOperations: INodeProperties[] = [
 				resource: ['subscriber'],
 			},
 		},
-        options: [
+		options: [
 			{
-                name: 'Create a New Subscriber',
-                value: 'createSubscriber',
-                action: 'Create a new subscriber',
-                routing: {
-                    request: {
-                        method: 'POST',
-                        url: '=/subscribers',
-                        body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
-                        encoding: 'json',
-                        json: true
-                    },
-                },
-            },
+				name: 'Create a New Subscriber',
+				value: 'createSubscriber',
+				action: 'Create a new subscriber',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '=/subscribers',
+						body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
+						encoding: 'json',
+						json: true,
+					},
+				},
+			},
 			{
 				name: 'Delete Subscriber by ID',
 				value: 'deleteSubscriber',
@@ -37,7 +37,7 @@ export const subscriberOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
+			{
 				name: 'Get',
 				value: 'get',
 				action: 'Get all subscribers',
@@ -48,7 +48,7 @@ export const subscriberOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
+			{
 				name: 'Get Subscriber by ID',
 				value: 'geSubscriberById',
 				action: 'Get subscriber by id',
@@ -59,21 +59,21 @@ export const subscriberOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
-                name: 'Modify a Subscriber',
-                value: 'modifySubscriber',
-                action: 'Modify a subscriber',
-                routing: {
-                    request: {
-                        method: 'PUT',
-                        url: '=/subscribers/{{$parameter.subscriberId}}',
-                        body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
-                        encoding: 'json',
-                        json: true
-                    },
-                },
-            },
-        ],
-        default : "get"
-    }
+			{
+				name: 'Modify a Subscriber',
+				value: 'modifySubscriber',
+				action: 'Modify a subscriber',
+				routing: {
+					request: {
+						method: 'PUT',
+						url: '=/subscribers/{{$parameter.subscriberId}}',
+						body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
+						encoding: 'json',
+						json: true,
+					},
+				},
+			},
+		],
+		default: 'get',
+	},
 ];
