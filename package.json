@@ -1,12 +1,12 @@
 {
   "name": "n8n-nodes-listmonk",
   "version": "0.1.0",
-  "description": "",
+  "description": "A n8n node to interact with Listmonk app",
   "keywords": [
     "n8n-community-node-package"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/LucasSovre/listmonk-n8n",
   "author": {
     "name": "Lucas Sovre",
     "email": "lucas.sovre@proton.me"

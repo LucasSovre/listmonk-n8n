@@ -12,6 +12,31 @@ export const listOperations: INodeProperties[] = [
 			},
 		},
 		options: [
+            {
+                name: 'Create List',
+                value: 'createList',
+                action: 'Create a list',
+                routing: {
+					request: {
+						method: 'POST',
+						url: '/lists',
+                        body: "={{JSON.parse($parameter.jsonBody)}}",
+                        encoding: 'json',
+                        json: true
+					},
+				},
+            },
+            {
+                name: 'Delete List',
+                value: 'deleteList',
+                action: 'Delete a list',
+                routing: {
+                    request: {
+                        method: "DELETE",
+                        url: "=/lists/{{$parameter.id}}"
+                    }
+                }
+            },
 			{
 				name: 'Get',
 				value: 'get',
@@ -27,20 +52,6 @@ export const listOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
-                name: 'Create List',
-                value: 'createList',
-                action: 'Create a list',
-                routing: {
-					request: {
-						method: 'POST',
-						url: '/lists',
-                        body: "={{JSON.parse($parameter.jsonBody)}}",
-                        encoding: 'json',
-                        json: true
-					},
-				},
-            },
             {
                 name: 'Get List',
                 value: 'getList',
@@ -66,17 +77,6 @@ export const listOperations: INodeProperties[] = [
                     }
                 }
             },
-            {
-                name: 'Delete List',
-                value: 'deleteList',
-                action: 'Delete a list',
-                routing: {
-                    request: {
-                        method: "DELETE",
-                        url: "=/lists/{{$parameter.id}}"
-                    }
-                }
-            }
 		],
 		default: 'get',
 	},

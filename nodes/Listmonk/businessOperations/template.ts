@@ -12,6 +12,31 @@ export const templateOperations: INodeProperties[] = [
 			},
 		},
         options: [
+			{
+                name: 'Create',
+                value: 'createTemplate',
+                action: 'Create a template',
+                routing: {
+                    request: {
+                        method: 'POST',
+                        url: '/templates',
+                        body: `={{JSON.stringify({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body})}}`,
+                        encoding: 'json',
+                        json: true
+                    }
+                }
+            },
+			{
+				name: 'Delete Template by ID',
+				value: 'deleteTemplate',
+				action: 'Delete template by id',
+				routing: {
+					request: {
+						method: 'DELETE',
+						url: '=/templates/{{$parameter.id}}',
+					},
+				},
+			},
             {
 				name: 'Get All',
 				value: 'getTemplates',
@@ -20,6 +45,17 @@ export const templateOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/templates',
+					},
+				},
+			},
+			{
+				name: 'Get Preview by ID',
+				value: 'getTemplatePreviewById',
+				action: 'Get template preview by id',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '=/templates/{{$parameter.id}}/preview',
 					},
 				},
 			},
@@ -34,31 +70,6 @@ export const templateOperations: INodeProperties[] = [
 					},
 				},
 			},
-            {
-				name: 'Get Preview by ID',
-				value: 'getTemplatePreviewById',
-				action: 'Get template preview by id',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '=/templates/{{$parameter.id}}/preview',
-					},
-				},
-			},
-            {
-                name: 'Create',
-                value: 'createTemplate',
-                action: 'Create a template',
-                routing: {
-                    request: {
-                        method: 'POST',
-                        url: '/templates',
-                        body: `={{JSON.stringify({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body})}}`,
-                        encoding: 'json',
-                        json: true
-                    }
-                }
-            },
             {
                 name: 'Modify',
                 value: 'modifyTemplate',
@@ -81,17 +92,6 @@ export const templateOperations: INodeProperties[] = [
 					request: {
 						method: 'PUT',
 						url: '=/templates/{{$parameter.id}}/default',
-					},
-				},
-			},
-            {
-				name: 'Delete Template by ID',
-				value: 'deleteTemplate',
-				action: 'Delete template by id',
-				routing: {
-					request: {
-						method: 'DELETE',
-						url: '=/templates/{{$parameter.id}}',
 					},
 				},
 			},

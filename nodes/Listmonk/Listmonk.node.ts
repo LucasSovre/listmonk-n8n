@@ -13,7 +13,7 @@ export class Listmonk implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Listmonk',
         name: 'listmonk',
-        icon: 'file:listmonk.png',
+        icon: 'file:listmonk.svg',
         group: ['transform'],
         version: 1,
         subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

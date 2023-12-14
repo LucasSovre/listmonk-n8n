@@ -383,7 +383,7 @@ export const listmonkOptions: INodeProperties[] = [
         name: 'preconfirmSubscriptions',
         type: 'boolean',
         default: true, // Initial state of the toggle
-        description: 'If true, subscriptions are marked as confirmed and no-optin emails are sent for double opt-in lists',
+        description: 'Whether If true, subscriptions are marked as confirmed and no-optin emails are sent for double opt-in lists',
         displayOptions: {
             show: {
                 operation: [

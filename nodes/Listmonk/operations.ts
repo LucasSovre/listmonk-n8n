@@ -12,6 +12,29 @@ export const utilsOperations: INodeProperties[] = [
 			},
 		},
 		options: [
+            {
+                name: "Charts",
+                value: "charts",
+                action: "Get charts data points",
+                routing: {
+                    request: {
+                        method: "GET",
+                        url: "=/dashboard/charts"
+
+                    }
+                }
+            },
+            {
+				name: 'Config',
+				value: 'config',
+				action: 'Get the config of the listmonk instance',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '/config',
+					},
+				},
+			},
 			{
 				name: 'Health',
 				value: 'health',
@@ -23,17 +46,6 @@ export const utilsOperations: INodeProperties[] = [
 					},
 				},
 			},
-			{
-				name: 'Config',
-				value: 'config',
-				action: 'Get the config of the listmonk instance',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '/config',
-					},
-				},
-			},
             {
                 name: "Langue",
                 value: "langue",
@@ -42,18 +54,6 @@ export const utilsOperations: INodeProperties[] = [
                     request: {
                         method: "GET",
                         url: "=/lang/{{$parameter.languageId}}"
-
-                    }
-                }
-            },
-            {
-                name: "Charts",
-                value: "charts",
-                action: "Get charts data points",
-                routing: {
-                    request: {
-                        method: "GET",
-                        url: "=/dashboard/charts"
 
                     }
                 }

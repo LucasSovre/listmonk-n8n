@@ -13,6 +13,31 @@ export const campaignOperations: INodeProperties[] = [
 		},
         options: [
             {
+                name: 'Create',
+                value: 'createCampaign',
+                action: 'Create a campaign',
+                routing: {
+                    request: {
+                        method: 'POST',
+                        url: '/campaigns',
+                        body: "={{JSON.parse($parameter.jsonBody)}}",
+                        encoding: 'json',
+                        json: true
+                    }
+                }
+            },
+            {
+                name: 'Delete',
+                value: 'deleteCampaign',
+                action: 'Delete a campaign',
+                routing: {
+                    request: {
+                        method: 'DELETE',
+                        url: '=/campaigns/{{$parameter.id}}',
+                    }
+                }
+            },
+            {
 				name: 'Get',
 				value: 'get',
 				action: 'Get all campaigns',
@@ -64,19 +89,19 @@ export const campaignOperations: INodeProperties[] = [
 				},
 			},
             {
-                name: 'Create',
-                value: 'createCampaign',
-                action: 'Create a campaign',
-                routing: {
-                    request: {
-                        method: 'POST',
-                        url: '/campaigns',
+				name: 'Test Sending the Campaign',
+				value: 'testCampaign',
+				action: 'Test sending the campaign',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '=/campaigns/{{$parameter.id}}/test',
                         body: "={{JSON.parse($parameter.jsonBody)}}",
                         encoding: 'json',
                         json: true
-                    }
-                }
-            },
+					},
+				},
+			},
             {
                 name: 'Update',
                 value: 'updateCampaign',
@@ -91,31 +116,6 @@ export const campaignOperations: INodeProperties[] = [
                     }
                 }
             },
-            {
-                name: 'Delete',
-                value: 'deleteCampaign',
-                action: 'Delete a campaign',
-                routing: {
-                    request: {
-                        method: 'DELETE',
-                        url: '=/campaigns/{{$parameter.id}}',
-                    }
-                }
-            },
-            {
-				name: 'Test Sending the Campaign',
-				value: 'testCampaign',
-				action: 'Test sending the campaign',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '=/campaigns/{{$parameter.id}}/test',
-                        body: "={{JSON.parse($parameter.jsonBody)}}",
-                        encoding: 'json',
-                        json: true
-					},
-				},
-			},
         ],
         default : "get"
     }

@@ -12,6 +12,31 @@ export const subscriberOperations: INodeProperties[] = [
 			},
 		},
         options: [
+			{
+                name: 'Create a New Subscriber',
+                value: 'createSubscriber',
+                action: 'Create a new subscriber',
+                routing: {
+                    request: {
+                        method: 'POST',
+                        url: '=/subscribers',
+                        body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
+                        encoding: 'json',
+                        json: true
+                    },
+                },
+            },
+			{
+				name: 'Delete Subscriber by ID',
+				value: 'deleteSubscriber',
+				action: 'Delete subscriber by id',
+				routing: {
+					request: {
+						method: 'DELETE',
+						url: '=/subscribers/{{$parameter.id}}',
+					},
+				},
+			},
             {
 				name: 'Get',
 				value: 'get',
@@ -35,20 +60,6 @@ export const subscriberOperations: INodeProperties[] = [
 				},
 			},
             {
-                name: 'Create a New Subscriber',
-                value: 'createSubscriber',
-                action: 'Create a new subscriber',
-                routing: {
-                    request: {
-                        method: 'POST',
-                        url: '=/subscribers',
-                        body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
-                        encoding: 'json',
-                        json: true
-                    },
-                },
-            },
-            {
                 name: 'Modify a Subscriber',
                 value: 'modifySubscriber',
                 action: 'Modify a subscriber',
@@ -62,17 +73,6 @@ export const subscriberOperations: INodeProperties[] = [
                     },
                 },
             },
-            {
-				name: 'Delete Subscriber by ID',
-				value: 'deleteSubscriber',
-				action: 'Delete subscriber by id',
-				routing: {
-					request: {
-						method: 'DELETE',
-						url: '=/subscribers/{{$parameter.id}}',
-					},
-				},
-			},
         ],
         default : "get"
     }

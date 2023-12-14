@@ -7,32 +7,32 @@ export const resources: INodeProperties = {
     noDataExpression: true,
     options: [
         {
-            name: 'Util',
-            value: 'utils',
-        },
-        {
-            name: 'Setting',
-            value: 'settings',
-        },
-        {
             name: "Admin",
             value: "admin",
-        },
-        /*{
-            name: "Logs",
-            value: "logs",
-        },*/
-        {
-            name: "List",
-            value: "list",
         },
         {
             name: "Campaign",
             value: "campaign",
         },
         {
+            name: "List",
+            value: "list",
+        },
+        /*{
+            name: "Logs",
+            value: "logs",
+        },*/
+        {
             name: "Media",
             value: "media",
+        },
+        {
+            name: 'Setting',
+            value: 'settings',
+        },
+        {
+            name: "Subscriber",
+            value: "subscriber",
         },
         {
             name: "Template",
@@ -43,8 +43,8 @@ export const resources: INodeProperties = {
             value: "transaction",
         },
         {
-            name: "Subscriber",
-            value: "subscriber",
+            name: 'Util',
+            value: 'utils',
         },
     ],
     default: 'utils',
