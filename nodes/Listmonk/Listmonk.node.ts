@@ -31,7 +31,7 @@ export class Listmonk implements INodeType {
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'ListmonkApi',
+				name: 'listmonkApi',
 				required: true,
 			},
 		],
