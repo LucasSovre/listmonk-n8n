@@ -9,12 +9,12 @@
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": ""
+				"url": "https://listmonk.app/docs/apis/apis/"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": ""
+				"url": "https://listmonk.app/docs/apis/apis/"
 			}
 		]
 	}
