@@ -18,14 +18,30 @@ export const resources: INodeProperties = {
             name: "Admin",
             value: "admin",
         },
-        {
+        /*{
             name: "Logs",
             value: "logs",
-        },
+        },*/
         {
             name: "List",
             value: "list",
-        }
+        },
+        {
+            name: "Campaign",
+            value: "campaign",
+        },
+        {
+            name: "Media",
+            value: "media",
+        },
+        {
+            name: "Template",
+            value: "template",
+        },
+        {
+            name: "Transaction",
+            value: "transaction",
+        },
     ],
     default: 'utils',
 }

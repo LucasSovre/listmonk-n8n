@@ -161,6 +161,37 @@ export const adminOperations: INodeProperties[] = [
 	},
 ];
 
+export const transactionOperations: INodeProperties[] = [
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: {
+			show: {
+				resource: ['transaction'],
+			},
+		},
+		options: [
+            {
+                name: 'Send a transactional email',
+                value: 'sendTx',
+                action: 'Send a transactional email',
+                routing: {
+                    request: {
+                        method: 'POST',
+                        url: '=/tx',
+                        body: `={{JSON.stringify({"subscriber_id":Number($parameter.subscriberId), "template_id":Number($parameter.templateId), "from_email" : $parameter.senderEmail, "messenger": $parameter.messengerTx, content_type: $parameter.contentType, "data": JSON.parse($parameter.dataTx) })}}`,
+                        encoding: 'json',
+                        json: true
+                    },
+                },
+            },
+		],
+		default: 'send',
+	},
+];
+
 export const logsOperations: INodeProperties[] = [
 	{
 		displayName: 'Operation',

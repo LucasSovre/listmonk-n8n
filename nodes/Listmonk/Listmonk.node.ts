@@ -1,9 +1,12 @@
 import { INodeType, INodeTypeDescription } from 'n8n-workflow';
 //@ts-ignores
-import { utilsOperations, settingsOperations, adminOperations, logsOperations } from './operations';
+import { utilsOperations, settingsOperations, adminOperations, logsOperations, transactionOperations } from './operations';
 import { listOperations } from './businessOperations/listOperations';
 import { resources } from './ressources';
 import { listmonkOptions } from './options';
+import { campaignOperations } from './businessOperations/campaing';
+import { mediaOperations } from './businessOperations/media';
+import { templateOperations } from './businessOperations/template';
 
 export class Listmonk implements INodeType {
 	description: INodeTypeDescription = {
@@ -41,9 +44,14 @@ export class Listmonk implements INodeType {
             ...utilsOperations,
             ...settingsOperations,
             ...adminOperations,
-            ...logsOperations,
+            //...logsOperations,
             ...listmonkOptions,
             ...listOperations,
+            ...campaignOperations,
+            ...mediaOperations,
+            ...templateOperations,
+            ...transactionOperations,
+            
 		]
 	};
 }
