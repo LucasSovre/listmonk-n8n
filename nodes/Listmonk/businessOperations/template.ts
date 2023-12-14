@@ -96,6 +96,6 @@ export const templateOperations: INodeProperties[] = [
 				},
 			},
         ],
-        default : "getMedia"
+        default : "getTemplates"
     }
 ];
