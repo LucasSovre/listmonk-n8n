@@ -13,7 +13,7 @@ export const templateOperations: INodeProperties[] = [
 		},
         options: [
             {
-				name: 'Get all',
+				name: 'Get All',
 				value: 'getTemplates',
 				action: 'Get all templates',
 				routing: {
@@ -24,7 +24,7 @@ export const templateOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Get template by id',
+				name: 'Get Template by ID',
 				value: 'getTemplateById',
 				action: 'Get template by id',
 				routing: {
@@ -35,7 +35,7 @@ export const templateOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Get preview by id',
+				name: 'Get Preview by ID',
 				value: 'getTemplatePreviewById',
 				action: 'Get template preview by id',
 				routing: {
@@ -74,7 +74,7 @@ export const templateOperations: INodeProperties[] = [
                 }
             },
             {
-				name: 'Set template as default',
+				name: 'Set Template as Default',
 				value: 'setTemplateAsDefault',
 				action: 'Set template as default',
 				routing: {
@@ -85,7 +85,7 @@ export const templateOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Delete template by id',
+				name: 'Delete Template by ID',
 				value: 'deleteTemplate',
 				action: 'Delete template by id',
 				routing: {

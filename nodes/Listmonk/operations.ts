@@ -59,7 +59,7 @@ export const utilsOperations: INodeProperties[] = [
                 }
             },
             {
-                name: "Stats counts",
+                name: 'Stats Counts',
                 value: "counts",
                 action: "Get stats count data points",
                 routing: {
@@ -129,7 +129,7 @@ export const settingsOperations: INodeProperties[] = [
                 },
             },
 		],
-		default: 'settings',
+		default: 'getSettings',
 	},
 ];
 
@@ -146,7 +146,7 @@ export const adminOperations: INodeProperties[] = [
 		},
 		options: [
             {
-                name: 'Restart the app',
+                name: 'Restart the App',
                 value: 'restart',
                 action: 'Restart the app',
                 routing: {
@@ -174,7 +174,7 @@ export const transactionOperations: INodeProperties[] = [
 		},
 		options: [
             {
-                name: 'Send a transactional email',
+                name: 'Send a Transactional Email',
                 value: 'sendTx',
                 action: 'Send a transactional email',
                 routing: {
@@ -188,7 +188,7 @@ export const transactionOperations: INodeProperties[] = [
                 },
             },
 		],
-		default: 'send',
+		default: 'sendTx',
 	},
 ];
 
@@ -205,7 +205,7 @@ export const logsOperations: INodeProperties[] = [
 		},
 		options: [
             {
-                name: 'Get the logs',
+                name: 'Get the Logs',
                 value: 'logs',
                 action: 'Get the logs',
                 routing: {

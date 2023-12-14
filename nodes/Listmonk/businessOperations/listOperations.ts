@@ -28,7 +28,7 @@ export const listOperations: INodeProperties[] = [
 				},
 			},
             {
-                name: 'Create list',
+                name: 'Create List',
                 value: 'createList',
                 action: 'Create a list',
                 routing: {
@@ -42,7 +42,7 @@ export const listOperations: INodeProperties[] = [
 				},
             },
             {
-                name: 'Get list',
+                name: 'Get List',
                 value: 'getList',
                 action: 'Get a list',
                 routing: {
@@ -53,7 +53,7 @@ export const listOperations: INodeProperties[] = [
                 }
             },
             {
-                name: 'Update list',
+                name: 'Update List',
                 value: 'updateList',
                 action: 'Update a list',
                 routing: {
@@ -67,7 +67,7 @@ export const listOperations: INodeProperties[] = [
                 }
             },
             {
-                name: 'Delete list',
+                name: 'Delete List',
                 value: 'deleteList',
                 action: 'Delete a list',
                 routing: {

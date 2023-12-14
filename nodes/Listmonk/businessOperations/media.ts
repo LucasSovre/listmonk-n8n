@@ -24,7 +24,7 @@ export const mediaOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Get media by id',
+				name: 'Get Media by ID',
 				value: 'getMediaById',
 				action: 'Get media by id',
 				routing: {
@@ -35,7 +35,7 @@ export const mediaOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Delete media by id',
+				name: 'Delete Media by ID',
 				value: 'deleteMedia',
 				action: 'Delete media by id',
 				routing: {

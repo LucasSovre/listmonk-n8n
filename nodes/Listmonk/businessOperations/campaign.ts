@@ -15,7 +15,7 @@ export const campaignOperations: INodeProperties[] = [
             {
 				name: 'Get',
 				value: 'get',
-				action: 'Get all Campaigns',
+				action: 'Get all campaigns',
 				routing: {
 					request: {
 						method: 'GET',
@@ -28,7 +28,7 @@ export const campaignOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Get by id',
+				name: 'Get by ID',
 				value: 'getCampaignById',
 				action: 'Get campaign by id',
 				routing: {
@@ -39,7 +39,7 @@ export const campaignOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Get preview by id',
+				name: 'Get Preview by ID',
 				value: 'getCampaignPreviewById',
 				action: 'Get campaign preview by id',
 				routing: {
@@ -50,7 +50,7 @@ export const campaignOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Get stats by id',
+				name: 'Get Stats by ID',
 				value: 'getCampaignStatsById',
 				action: 'Get campaign stats by id',
 				routing: {
@@ -103,7 +103,7 @@ export const campaignOperations: INodeProperties[] = [
                 }
             },
             {
-				name: 'Test sending the campaign',
+				name: 'Test Sending the Campaign',
 				value: 'testCampaign',
 				action: 'Test sending the campaign',
 				routing: {

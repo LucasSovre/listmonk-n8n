@@ -12,7 +12,7 @@ import { subscriberOperations } from './businessOperations/subscribers';
 export class Listmonk implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Listmonk',
-        name: 'Listmonk',
+        name: 'listmonk',
         icon: 'file:listmonk.png',
         group: ['transform'],
         version: 1,

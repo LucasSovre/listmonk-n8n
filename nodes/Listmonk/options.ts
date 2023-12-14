@@ -19,7 +19,6 @@ export const listmonkOptions: INodeProperties[] = [
     },
     {
         displayName: 'Name',
-        description: 'The name',
         required: true,
         name: 'name',
         type: 'string',
@@ -38,7 +37,6 @@ export const listmonkOptions: INodeProperties[] = [
     {
         displayName: 'Subject',
         description: 'Mail subject',
-        required: false,
         name: 'subject',
         type: 'string',
         default: '',
@@ -65,7 +63,7 @@ export const listmonkOptions: INodeProperties[] = [
                 value: 'tx',
             },
         ],
-        default: {}, // The initially selected option
+        default: 'campaign', // The initially selected option
         description: 'Template type',
         displayOptions: { // the resources and operations to display this element with
             show: {
@@ -85,7 +83,7 @@ export const listmonkOptions: INodeProperties[] = [
         },
         default: "", // Loads n8n's placeholder HTML template
         noDataExpression: true, // Prevent using an expression for the field
-        description: 'body of the template',
+        description: 'Body of the template',
         displayOptions: { // the resources and operations to display this element with
             show: {
                 operation: [
@@ -141,7 +139,7 @@ export const listmonkOptions: INodeProperties[] = [
         },
     },
     {
-        displayName: 'Per page',
+        displayName: 'Per Page',
         description: 'The number of element per page to querry on',
         required: true,
         name: 'perPage',
@@ -156,9 +154,8 @@ export const listmonkOptions: INodeProperties[] = [
         },
     },
     {
-        displayName: "Json body",
-        description: 'The json body to send',
-        required: false,
+        displayName: 'Json Body',
+        description: 'The JSON body to send',
         name: 'jsonBody',
         type: 'json',
         default: '{}',
@@ -175,8 +172,8 @@ export const listmonkOptions: INodeProperties[] = [
         },
     },
     {
-        displayName: "Id",
-        description: 'The id of the object',
+        displayName: 'ID',
+        description: 'The ID of the object',
         required: true,
         name: 'id',
         type: 'string',
@@ -207,8 +204,7 @@ export const listmonkOptions: INodeProperties[] = [
         },
     },
     {
-        displayName: 'Template id',
-        description: 'The template id',
+        displayName: 'Template ID',
         required: true,
         name: 'templateId',
         type: 'number',
@@ -222,8 +218,7 @@ export const listmonkOptions: INodeProperties[] = [
         },
     },
     {
-        displayName: 'Subscriber id',
-        description: 'The subscriber id',
+        displayName: 'Subscriber ID',
         required: true,
         name: 'subscriberId',
         type: 'number',
@@ -238,9 +233,8 @@ export const listmonkOptions: INodeProperties[] = [
         },
     },
     {
-        displayName: 'Sender email',
+        displayName: 'Sender Email',
         description: 'The email of the sender',
-        required: false,
         name: 'senderEmail',
         type: 'string',
         default: '',
@@ -255,7 +249,6 @@ export const listmonkOptions: INodeProperties[] = [
     {
         displayName: 'Messenger',
         description: 'The messenger to use',
-        required: false,
         name: 'messengerTx',
         type: 'string',
         default: 'email',
@@ -268,7 +261,7 @@ export const listmonkOptions: INodeProperties[] = [
         },
     },
     {
-        displayName: 'Content type',
+        displayName: 'Content Type',
         name: 'contentType',
         type: 'options',
         options: [
@@ -285,11 +278,7 @@ export const listmonkOptions: INodeProperties[] = [
                 value: 'plain',
             }
         ],
-        default: {
-            name: 'HTML',
-            value: 'html',
-        }, // The initially selected option
-        description: 'Content type',
+        default: 'html', // The initially selected option
         displayOptions: { // the resources and operations to display this element with
             show: {
                 operation: [
@@ -301,7 +290,6 @@ export const listmonkOptions: INodeProperties[] = [
     {
         displayName: "Data",
         description: 'Optional nested JSON map',
-        required: false,
         name: 'dataTx',
         type: 'json',
         default: '{}',
@@ -319,7 +307,6 @@ export const listmonkOptions: INodeProperties[] = [
     {
         displayName: 'Email',
         description: 'Subscriber email',
-        required: false,
         name: 'subscriberEmail',
         type: 'string',
         default: '',
@@ -336,7 +323,6 @@ export const listmonkOptions: INodeProperties[] = [
         displayName: 'Status',
         name: 'subscriberStatus',
         type: 'options',
-        required: false,
         options: [
             {
                 name: 'Enabled',
@@ -351,10 +337,7 @@ export const listmonkOptions: INodeProperties[] = [
                 value: 'blocklisted',
             }
         ],
-        default:{
-            name: 'Enabled',
-            value: 'enabled',
-        }, // The initially selected option
+        default: 'enabled', // The initially selected option
         description: 'Subscriber status',
         displayOptions: { // the resources and operations to display this element with
             show: {
@@ -368,7 +351,6 @@ export const listmonkOptions: INodeProperties[] = [
     {
         displayName: "Lists",
         description: 'Lists to add the subscriber to',
-        required: false,
         name: 'subscriberLists',
         type: 'json',
         default: '[]',
@@ -383,8 +365,7 @@ export const listmonkOptions: INodeProperties[] = [
     },
     {
         displayName: "Attributes",
-        description: 'subscriber attributes',
-        required: false,
+        description: 'Subscriber attributes',
         name: 'subscriberAttributes',
         type: 'json',
         default: '{}',
@@ -398,11 +379,11 @@ export const listmonkOptions: INodeProperties[] = [
         },
     },
     {
-        displayName: 'Preconfirm subscriptions',
+        displayName: 'Preconfirm Subscriptions',
         name: 'preconfirmSubscriptions',
         type: 'boolean',
         default: true, // Initial state of the toggle
-        description: 'If true, subscriptions are marked as confirmed and no-optin emails are sent for double opt-in lists.',
+        description: 'If true, subscriptions are marked as confirmed and no-optin emails are sent for double opt-in lists',
         displayOptions: {
             show: {
                 operation: [

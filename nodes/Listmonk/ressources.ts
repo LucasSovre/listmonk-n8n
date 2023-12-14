@@ -7,11 +7,11 @@ export const resources: INodeProperties = {
     noDataExpression: true,
     options: [
         {
-            name: 'Utils',
+            name: 'Util',
             value: 'utils',
         },
         {
-            name: 'Settings',
+            name: 'Setting',
             value: 'settings',
         },
         {

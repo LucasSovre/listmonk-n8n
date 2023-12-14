@@ -24,7 +24,7 @@ export const subscriberOperations: INodeProperties[] = [
 				},
 			},
             {
-				name: 'Get subscriber by id',
+				name: 'Get Subscriber by ID',
 				value: 'geSubscriberById',
 				action: 'Get subscriber by id',
 				routing: {
@@ -35,7 +35,7 @@ export const subscriberOperations: INodeProperties[] = [
 				},
 			},
             {
-                name: 'Create a new subscriber',
+                name: 'Create a New Subscriber',
                 value: 'createSubscriber',
                 action: 'Create a new subscriber',
                 routing: {
@@ -49,7 +49,7 @@ export const subscriberOperations: INodeProperties[] = [
                 },
             },
             {
-                name: 'Modify a subscriber',
+                name: 'Modify a Subscriber',
                 value: 'modifySubscriber',
                 action: 'Modify a subscriber',
                 routing: {
@@ -63,7 +63,7 @@ export const subscriberOperations: INodeProperties[] = [
                 },
             },
             {
-				name: 'Delete subscriber by id',
+				name: 'Delete Subscriber by ID',
 				value: 'deleteSubscriber',
 				action: 'Delete subscriber by id',
 				routing: {
