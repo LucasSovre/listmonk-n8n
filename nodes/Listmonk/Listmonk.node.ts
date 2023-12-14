@@ -4,7 +4,7 @@ import {
 	utilsOperations,
 	settingsOperations,
 	adminOperations,
-	logsOperations,
+	//logsOperations,
 	transactionOperations,
 } from './operations';
 import { listOperations } from './businessOperations/listOperations';
