@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "A n8n node to interact with Listmonk app",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "listmonk",
+    "email"
   ],
   "license": "MIT",
   "homepage": "https://github.com/LucasSovre/listmonk-n8n",
