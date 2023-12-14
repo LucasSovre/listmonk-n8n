@@ -7,7 +7,7 @@
     "listmonk",
     "email"
   ],
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://github.com/LucasSovre/listmonk-n8n",
   "author": {
     "name": "Lucas Sovre",
