@@ -29,6 +29,8 @@ export const listmonkOptions: INodeProperties[] = [
                 operation: [
                     'createTemplate',
                     "modifyTemplate",
+                    "createSubscriber",
+                    "modifySubscriber",
                 ],
             },
         },
@@ -197,7 +199,9 @@ export const listmonkOptions: INodeProperties[] = [
                     "getTemplatePreviewById",
                     "deleteTemplate",
                     "modifyTemplate",
-                    "setTemplateAsDefault"
+                    "setTemplateAsDefault",
+                    "geSubscriberById",
+                    "deleteSubscriber",
                 ],
             },
         },
@@ -228,6 +232,7 @@ export const listmonkOptions: INodeProperties[] = [
             show: {
                 operation: [
                     'sendTx',
+                    "modifySubscriber",
                 ],
             },
         },
@@ -304,6 +309,105 @@ export const listmonkOptions: INodeProperties[] = [
             show: {
                 operation: [
                     "sendTx",
+                ],
+            },
+        },
+    },
+    ////
+    //// Subscriber
+    ////
+    {
+        displayName: 'Email',
+        description: 'Subscriber email',
+        required: false,
+        name: 'subscriberEmail',
+        type: 'string',
+        default: '',
+        displayOptions: {
+            show: {
+                operation: [
+                    'createSubscriber',
+                    "modifySubscriber",
+                ],
+            },
+        },
+    },
+    {
+        displayName: 'Status',
+        name: 'subscriberStatus',
+        type: 'options',
+        required: false,
+        options: [
+            {
+                name: 'Enabled',
+                value: 'enabled',
+            },
+            {
+                name: 'Disabled',
+                value: 'disabled',
+            },
+            {
+                name: 'Blocklisted',
+                value: 'blocklisted',
+            }
+        ],
+        default:{
+            name: 'Enabled',
+            value: 'enabled',
+        }, // The initially selected option
+        description: 'Subscriber status',
+        displayOptions: { // the resources and operations to display this element with
+            show: {
+                operation: [
+                    "createSubscriber",
+                    "modifySubscriber",
+                ]
+            }
+        },
+    },
+    {
+        displayName: "Lists",
+        description: 'Lists to add the subscriber to',
+        required: false,
+        name: 'subscriberLists',
+        type: 'json',
+        default: '[]',
+        displayOptions: {
+            show: {
+                operation: [
+                    "createSubscriber",
+                    "modifySubscriber",
+                ],
+            },
+        },
+    },
+    {
+        displayName: "Attributes",
+        description: 'subscriber attributes',
+        required: false,
+        name: 'subscriberAttributes',
+        type: 'json',
+        default: '{}',
+        displayOptions: {
+            show: {
+                operation: [
+                    "createSubscriber",
+                    "modifySubscriber",
+                ],
+            },
+        },
+    },
+    {
+        displayName: 'Preconfirm subscriptions',
+        name: 'preconfirmSubscriptions',
+        type: 'boolean',
+        default: true, // Initial state of the toggle
+        description: 'If true, subscriptions are marked as confirmed and no-optin emails are sent for double opt-in lists.',
+        displayOptions: {
+            show: {
+                operation: [
+                    "createSubscriber",
+                    "modifySubscriber",
                 ],
             },
         },

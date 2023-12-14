@@ -42,6 +42,10 @@ export const resources: INodeProperties = {
             name: "Transaction",
             value: "transaction",
         },
+        {
+            name: "Subscriber",
+            value: "subscriber",
+        },
     ],
     default: 'utils',
 }

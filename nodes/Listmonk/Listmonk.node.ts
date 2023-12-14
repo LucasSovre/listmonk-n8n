@@ -7,6 +7,7 @@ import { listmonkOptions } from './options';
 import { campaignOperations } from './businessOperations/campaign';
 import { mediaOperations } from './businessOperations/media';
 import { templateOperations } from './businessOperations/template';
+import { subscriberOperations } from './businessOperations/subscribers';
 
 export class Listmonk implements INodeType {
 	description: INodeTypeDescription = {
@@ -51,7 +52,7 @@ export class Listmonk implements INodeType {
             ...mediaOperations,
             ...templateOperations,
             ...transactionOperations,
-            
+            ...subscriberOperations,
 		]
 	};
 }
