@@ -4,7 +4,7 @@ import { utilsOperations, settingsOperations, adminOperations, logsOperations, t
 import { listOperations } from './businessOperations/listOperations';
 import { resources } from './ressources';
 import { listmonkOptions } from './options';
-import { campaignOperations } from './businessOperations/campaing';
+import { campaignOperations } from './businessOperations/campaign';
 import { mediaOperations } from './businessOperations/media';
 import { templateOperations } from './businessOperations/template';
 
