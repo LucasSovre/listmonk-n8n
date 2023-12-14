@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  listmonk:
+    image: listmonk/listmonk:latest
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      - LISTMONK_db__host=db
+      - LISTMONK_db__port=5432
+      - LISTMONK_db__user=postgres
+      - LISTMONK_db__password=password
+      - LISTMONK_db__database=listmonk
+      - LISTMONK_db__ssl_mode=disable
+    depends_on:
+      - db
+    volumes:
+      - ./listmonk.toml:/listmonk/config.toml
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: listmonk
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    restart: always
+    ports:
+      - "8025:8025"  # MailHog web UI
+
+volumes:
+  postgres-data:
