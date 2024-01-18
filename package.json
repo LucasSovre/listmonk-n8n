@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-listmonk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A n8n node to interact with Listmonk app",
   "keywords": [
     "n8n-community-node-package",
