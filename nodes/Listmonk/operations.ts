@@ -46,8 +46,8 @@ export const utilsOperations: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Langue',
-				value: 'langue',
+				name: 'Language',
+				value: 'language',
 				action: 'Get the contents for a language',
 				routing: {
 					request: {
