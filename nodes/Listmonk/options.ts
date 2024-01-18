@@ -67,7 +67,7 @@ export const listmonkOptions: INodeProperties[] = [
 		name: 'body', // The name used to reference the element UI within the code
 		type: 'string',
 		typeOptions: {
-			editor: 'htmlEditor',
+			editor: 'code',
 		},
 		default: '', // Loads n8n's placeholder HTML template
 		noDataExpression: true, // Prevent using an expression for the field
