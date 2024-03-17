@@ -49,6 +49,20 @@ export const subscriberOperations: INodeProperties[] = [
 				},
 			},
 			{
+				name: 'Get by Email',
+				value: 'getByEmail',
+				action: 'Get by Email',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '/subscribers',
+						qs: {
+							query: '=email=\'{{$parameter.subscriberEmail}}\'',
+						},
+					},
+				},
+			},
+			{
 				name: 'Get Subscriber by ID',
 				value: 'geSubscriberById',
 				action: 'Get subscriber by id',
