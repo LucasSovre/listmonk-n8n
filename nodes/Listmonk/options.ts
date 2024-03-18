@@ -340,4 +340,17 @@ export const listmonkOptions: INodeProperties[] = [
 			},
 		},
 	},
+	{
+		displayName: 'Subscriber Email',
+		description: 'Search subscriber by email address. Although the email address in listmonk a unique field, it doesn\'t provide a direct API to get one the subscriber by email address. This method will return a list of subscribers if found, containing one element.',
+		required: true,
+		name: 'subscriberEmail',
+		type: 'string',
+		default: '',
+		displayOptions: {
+			show: {
+				operation: ['getByEmail'],
+			},
+		},
+	},
 ];
