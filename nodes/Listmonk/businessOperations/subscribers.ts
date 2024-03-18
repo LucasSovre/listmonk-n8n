@@ -51,7 +51,7 @@ export const subscriberOperations: INodeProperties[] = [
 			{
 				name: 'Get by Email',
 				value: 'getByEmail',
-				action: 'Get by Email',
+				action: 'Get by email',
 				routing: {
 					request: {
 						method: 'GET',
