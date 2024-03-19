@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GH_TOKEN }}
+        issue-message: "Thanks, for creating an issue, if the improvement ask is legitimate, we will work on it as soon as possible, do not hesitate to create your own pull-request 😉"
+        pr-message: "Thanks a lot for having created a pull-request, we will review it as fast as possible, we will be back to you here 🥳"
