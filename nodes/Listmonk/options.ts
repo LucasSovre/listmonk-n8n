@@ -329,7 +329,7 @@ export const listmonkOptions: INodeProperties[] = [
 	},
 	{
 		displayName: 'List ID',
-		description: 'Get all the subscribers by list id.',
+		description: 'Get all the subscribers by list ID',
 		required: true,
 		name: 'listId',
 		type: 'number',
