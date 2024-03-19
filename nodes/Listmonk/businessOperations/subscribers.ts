@@ -63,6 +63,20 @@ export const subscriberOperations: INodeProperties[] = [
 				},
 			},
 			{
+				name: 'Get by List ID',
+				value: 'getByListId',
+				action: 'Get by list id',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '/subscribers',
+						qs: {
+							list_id: '={{$parameter.listId}}',
+						},
+					},
+				},
+			},
+			{
 				name: 'Get Subscriber by ID',
 				value: 'geSubscriberById',
 				action: 'Get subscriber by id',
