@@ -328,6 +328,19 @@ export const listmonkOptions: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'List ID',
+		description: 'Get all the subscribers by list id.',
+		required: true,
+		name: 'listId',
+		type: 'number',
+		default: '',
+		displayOptions: {
+			show: {
+				operation: ['getByListId'],
+			},
+		},
+	},
+	{
 		displayName: 'Preconfirm Subscriptions',
 		name: 'preconfirmSubscriptions',
 		type: 'boolean',
