@@ -304,6 +304,84 @@ export const listmonkOptions: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Subscriber IDs',
+		name: 'subscriberIDs',
+		type: 'json',
+		default: '[]',
+		displayOptions: {
+			show: {
+				operation: ['manageSubscribersLists'],
+			},
+		},
+	},
+	{
+		displayName: 'Action',
+		name: 'subscriptionAction',
+		type: 'options',
+		required: true,
+		options: [
+			{
+				name: 'Add',
+				value: 'add',
+			},
+			{
+				name: 'Remove',
+				value: 'remove',
+			},
+			{
+				name: 'Unsubscribe',
+				value: 'unsubscribe',
+			},
+		],
+		default: 'add', // The initially selected option
+		description: 'Subscriber status',
+		displayOptions: {
+			// the resources and operations to display this element with
+			show: {
+				operation: ['manageSubscribersLists'],
+			},
+		},
+	},
+	{
+		displayName: 'List IDs',
+		description: 'List IDs to add subscribers to',
+		name: 'listIDs',
+		type: 'json',
+		default: '[]',
+		displayOptions: {
+			show: {
+				operation: ['manageSubscribersLists'],
+			},
+		},
+	},
+	{
+		displayName: 'Subscription Status',
+		name: 'subscriptionStatus',
+		type: 'options',
+		options: [
+			{
+				name: 'Confirmed',
+				value: 'confirmed',
+			},
+			{
+				name: 'Unconfirmed',
+				value: 'unconfirmed',
+			},
+			{
+				name: 'Unsubscribed',
+				value: 'unsubscribed',
+			},
+		],
+		default: 'confirmed', // The initially selected option
+		description: 'Subscriber status',
+		displayOptions: {
+			// the resources and operations to display this element with
+			show: {
+				operation: ['manageSubscribersLists'],
+			},
+		},
+	},
+	{
 		displayName: 'Lists',
 		description: 'Lists to add the subscriber to',
 		name: 'subscriberLists',
