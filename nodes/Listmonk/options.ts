@@ -333,10 +333,8 @@ export const listmonkOptions: INodeProperties[] = [
 				value: 'unsubscribe',
 			},
 		],
-		default: 'add', // The initially selected option
-		description: 'Subscriber status',
+		default: 'add',
 		displayOptions: {
-			// the resources and operations to display this element with
 			show: {
 				operation: ['manageSubscribersLists'],
 			},
@@ -372,10 +370,9 @@ export const listmonkOptions: INodeProperties[] = [
 				value: 'unsubscribed',
 			},
 		],
-		default: 'confirmed', // The initially selected option
+		default: 'confirmed',
 		description: 'Subscriber status',
 		displayOptions: {
-			// the resources and operations to display this element with
 			show: {
 				operation: ['manageSubscribersLists'],
 			},

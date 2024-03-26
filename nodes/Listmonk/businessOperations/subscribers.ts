@@ -90,12 +90,12 @@ export const subscriberOperations: INodeProperties[] = [
 			{
 				name: 'Manage Subscriber List',
 				value: 'manageSubscribersLists',
-				action: 'Add or remove multiple subscribers to and from given lists or mark them unsubscribed in list',
+				action: 'Manage subscriber list',
 				routing: {
 					request: {
 						method: 'PUT',
 						url: '/subscribers/lists',
-						body: '{{JSON.stringify({"ids":JSON.parse($parameter.subscriberIds), "action":$parameter.subscriptionAction, "target_list_ids":JSON.parse($parameter.listIds), "status":$parameter.subscriptionStatus })}}',
+						body: '={{JSON.stringify({"ids":JSON.parse($parameter.subscriberIDs), "action":$parameter.subscriptionAction, "target_list_ids":JSON.parse($parameter.listIDs), "status":$parameter.subscriptionStatus })}}',
 						encoding: 'json',
 						json: true,
 					},
