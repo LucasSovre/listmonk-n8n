@@ -1,15 +1,22 @@
-import { ICredentialType, INodeProperties } from 'n8n-workflow';
+import {
+	IAuthenticateGeneric,
+	ICredentialTestRequest,
+	ICredentialType,
+	INodeProperties,
+} from 'n8n-workflow';
 
 export class ListmonkApi implements ICredentialType {
 	name = 'listmonkApi';
 	displayName = 'Listmonk API';
-	documentationUrl = 'https://docs.listmonk.app/api/';
+	documentationUrl = 'https://listmonk.app/docs/apis/apis/';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'User',
 			name: 'user',
 			type: 'string',
 			default: '',
+			description:
+				'On listmonk v3+, the name of an API user created under Admin -> Users -> API users',
 		},
 		{
 			displayName: 'Password',
@@ -19,6 +26,7 @@ export class ListmonkApi implements ICredentialType {
 				password: true,
 			},
 			default: '',
+			description: 'On listmonk v3+, the API token of that API user',
 		},
 		{
 			displayName: 'Domain',
@@ -27,12 +35,22 @@ export class ListmonkApi implements ICredentialType {
 			default: 'https://listmonk.example.com',
 		},
 	];
-	/*authenticate = {
+
+	// ponytail: BasicAuth works on both legacy and v3+/v4 listmonk, so no auth-type switch
+	authenticate: IAuthenticateGeneric = {
 		type: 'generic',
 		properties: {
-			headers: {
-				'Authorization': '={{"Basic bGlzdG1vbms6bGlzdG1vbms="}}'
-			}
+			auth: {
+				username: '={{$credentials.user}}',
+				password: '={{$credentials.password}}',
+			},
 		},
-	} as IAuthenticateGeneric;*/
+	};
+
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: '={{$credentials.domain.replace(new RegExp("/$"), "")}}',
+			url: '/api/health',
+		},
+	};
 }
