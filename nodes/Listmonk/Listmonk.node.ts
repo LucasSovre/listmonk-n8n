@@ -3,7 +3,7 @@ import {
 	utilsOperations,
 	settingsOperations,
 	adminOperations,
-	//logsOperations,
+	logsOperations,
 	transactionOperations,
 } from './operations';
 import { listOperations } from './businessOperations/listOperations';
@@ -46,7 +46,7 @@ export class Listmonk implements INodeType {
 			...utilsOperations,
 			...settingsOperations,
 			...adminOperations,
-			//...logsOperations,
+			...logsOperations,
 			...listmonkOptions,
 			...listOperations,
 			...campaignOperations,

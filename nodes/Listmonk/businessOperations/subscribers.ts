@@ -13,6 +13,17 @@ export const subscriberOperations: INodeProperties[] = [
 		},
 		options: [
 			{
+				name: 'Blocklist Subscriber by ID',
+				value: 'blocklistSubscriber',
+				action: 'Blocklist subscriber by id',
+				routing: {
+					request: {
+						method: 'PUT',
+						url: '=/subscribers/{{$parameter.id}}/blocklist',
+					},
+				},
+			},
+			{
 				name: 'Create a New Subscriber',
 				value: 'createSubscriber',
 				action: 'Create a new subscriber',
@@ -57,7 +68,10 @@ export const subscriberOperations: INodeProperties[] = [
 						method: 'GET',
 						url: '/subscribers',
 						qs: {
-							query: '=email=\'{{$parameter.subscriberEmail}}\'',
+							// SQL expression is injected raw by listmonk, so qualify the column and
+							// escape single quotes in the email
+							query:
+								'=subscribers.email = \'{{ $parameter.subscriberEmail.trim().toLowerCase().replaceAll("\'", "\'\'") }}\'',
 						},
 					},
 				},
@@ -73,6 +87,17 @@ export const subscriberOperations: INodeProperties[] = [
 						qs: {
 							list_id: '={{$parameter.listId}}',
 						},
+					},
+				},
+			},
+			{
+				name: 'Get Subscriber Bounces by ID',
+				value: 'getSubscriberBounces',
+				action: 'Get subscriber bounces by id',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '=/subscribers/{{$parameter.id}}/bounces',
 					},
 				},
 			},
@@ -112,6 +137,17 @@ export const subscriberOperations: INodeProperties[] = [
 						body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
 						encoding: 'json',
 						json: true,
+					},
+				},
+			},
+			{
+				name: 'Send Opt-in Confirmation by ID',
+				value: 'sendSubscriberOptin',
+				action: 'Send opt in confirmation by id',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '=/subscribers/{{$parameter.id}}/optin',
 					},
 				},
 			},

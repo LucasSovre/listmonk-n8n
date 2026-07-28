@@ -18,10 +18,10 @@ export const resources: INodeProperties = {
 			name: 'List',
 			value: 'list',
 		},
-		/*{
-            name: "Logs",
-            value: "logs",
-        },*/
+		{
+			name: 'Log',
+			value: 'logs',
+		},
 		{
 			name: 'Media',
 			value: 'media',
