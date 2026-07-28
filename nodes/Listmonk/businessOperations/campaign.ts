@@ -89,6 +89,20 @@ export const campaignOperations: INodeProperties[] = [
 				},
 			},
 			{
+				name: 'Set Status',
+				value: 'setCampaignStatus',
+				action: 'Set campaign status',
+				routing: {
+					request: {
+						method: 'PUT',
+						url: '=/campaigns/{{$parameter.id}}/status',
+						body: '={{JSON.stringify({"status":$parameter.campaignStatus})}}',
+						encoding: 'json',
+						json: true,
+					},
+				},
+			},
+			{
 				name: 'Test Sending the Campaign',
 				value: 'testCampaign',
 				action: 'Test sending the campaign',

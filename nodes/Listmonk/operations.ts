@@ -205,8 +205,8 @@ export const logsOperations: INodeProperties[] = [
 				action: 'Get the logs',
 				routing: {
 					request: {
-						method: 'POST',
-						url: '=/logs',
+						method: 'GET',
+						url: '/logs',
 					},
 				},
 			},

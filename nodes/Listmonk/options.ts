@@ -171,6 +171,10 @@ export const listmonkOptions: INodeProperties[] = [
 					'setTemplateAsDefault',
 					'geSubscriberById',
 					'deleteSubscriber',
+					'setCampaignStatus',
+					'blocklistSubscriber',
+					'getSubscriberBounces',
+					'sendSubscriberOptin',
 				],
 			},
 		},
@@ -284,10 +288,6 @@ export const listmonkOptions: INodeProperties[] = [
 			{
 				name: 'Enabled',
 				value: 'enabled',
-			},
-			{
-				name: 'Disabled',
-				value: 'disabled',
 			},
 			{
 				name: 'Blocklisted',
@@ -429,8 +429,44 @@ export const listmonkOptions: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Status',
+		name: 'campaignStatus',
+		type: 'options',
+		required: true,
+		options: [
+			{
+				name: 'Cancelled',
+				value: 'cancelled',
+			},
+			{
+				name: 'Draft',
+				value: 'draft',
+			},
+			{
+				name: 'Paused',
+				value: 'paused',
+			},
+			{
+				name: 'Running',
+				value: 'running',
+			},
+			{
+				name: 'Scheduled',
+				value: 'scheduled',
+			},
+		],
+		default: 'running',
+		description:
+			'Allowed transitions: scheduled to draft, draft to scheduled, draft or paused to running, running to paused or cancelled',
+		displayOptions: {
+			show: {
+				operation: ['setCampaignStatus'],
+			},
+		},
+	},
+	{
 		displayName: 'Subscriber Email',
-		description: 'Search subscriber by email address. Although the email address in listmonk a unique field, it doesn\'t provide a direct API to get one the subscriber by email address. This method will return a list of subscribers if found, containing one element.',
+		description: 'Search subscriber by email address. Although the email address in listmonk a unique field, it doesn\'t provide a direct API to get one the subscriber by email address. This method will return a list of subscribers if found, containing one element. On listmonk v3+, the API user needs the subscribers:sql_query permission.',
 		required: true,
 		name: 'subscriberEmail',
 		type: 'string',
