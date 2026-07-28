@@ -1,21 +1,30 @@
 {
-  "name": "n8n-nodes-listmonk",
-  "version": "1.1.0",
-  "description": "A n8n node to interact with Listmonk app",
+  "name": "n8n-nodes-listmonk-community",
+  "version": "1.2.0",
+  "description": "n8n community node for Listmonk, kept in sync with current n8n and listmonk releases (fork of n8n-nodes-listmonk)",
   "keywords": [
     "n8n-community-node-package",
     "listmonk",
     "email"
   ],
-  "license": "MIT",
-  "homepage": "https://github.com/LucasSovre/listmonk-n8n",
+  "license": "(MIT AND Apache-2.0)",
+  "homepage": "https://github.com/Djancyp/listmonk-n8n",
   "author": {
-    "name": "Lucas Sovre",
-    "email": "lucas.sovre@proton.me"
+    "name": "djan",
+    "email": "youcyprus@gmail.com"
   },
+  "contributors": [
+    {
+      "name": "Lucas Sovre",
+      "email": "lucas.sovre@proton.me"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/LucasSovre/listmonk-n8n"
+    "url": "git+https://github.com/Djancyp/listmonk-n8n.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Djancyp/listmonk-n8n/issues"
   },
   "main": "index.js",
   "engines": {
