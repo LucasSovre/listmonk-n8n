@@ -27,8 +27,6 @@ module.exports = {
 			extends: ['plugin:n8n-nodes-base/community'],
 			rules: {
 				'n8n-nodes-base/community-package-json-name-still-default': 'off',
-				// Upstream code is Apache-2.0 on an MIT n8n base and cannot be relicensed to MIT
-				'n8n-nodes-base/community-package-json-license-not-default': 'off',
 			},
 		},
 		{
