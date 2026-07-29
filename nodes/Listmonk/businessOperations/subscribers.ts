@@ -31,7 +31,7 @@ export const subscriberOperations: INodeProperties[] = [
 					request: {
 						method: 'POST',
 						url: '/subscribers',
-						body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
+						body: `={{ ({"email":$parameter.subscriberEmail.trim(), "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists).map(Number), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) }) }}`,
 						encoding: 'json',
 						json: true,
 					},
@@ -71,7 +71,7 @@ export const subscriberOperations: INodeProperties[] = [
 							// SQL expression is injected raw by listmonk, so qualify the column and
 							// escape single quotes in the email
 							query:
-								'=subscribers.email = \'{{ $parameter.subscriberEmail.trim().toLowerCase().replaceAll("\'", "\'\'") }}\'',
+								'=subscribers.email = \'{{ $parameter.searchEmail.trim().toLowerCase().replaceAll("\'", "\'\'") }}\'',
 						},
 					},
 				},
@@ -120,7 +120,7 @@ export const subscriberOperations: INodeProperties[] = [
 					request: {
 						method: 'PUT',
 						url: '/subscribers/lists',
-						body: '={{JSON.stringify({"ids":JSON.parse($parameter.subscriberIDs), "action":$parameter.subscriptionAction, "target_list_ids":JSON.parse($parameter.listIDs), "status":$parameter.subscriptionStatus })}}',
+						body: '={{ ({"ids":JSON.parse($parameter.subscriberIDs).map(Number), "action":$parameter.subscriptionAction, "target_list_ids":JSON.parse($parameter.listIDs).map(Number), "status":$parameter.subscriptionStatus }) }}',
 						encoding: 'json',
 						json: true,
 					},
@@ -134,7 +134,7 @@ export const subscriberOperations: INodeProperties[] = [
 					request: {
 						method: 'PUT',
 						url: '=/subscribers/{{$parameter.subscriberId}}',
-						body: `={{JSON.stringify({"email":$parameter.subscriberEmail, "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) })}}`,
+						body: `={{ ({"email":$parameter.subscriberEmail.trim(), "name":$parameter.name, "status" : $parameter.subscriberStatus, "lists": JSON.parse($parameter.subscriberLists).map(Number), attribs: JSON.parse($parameter.subscriberAttributes), "preconfirm_subscriptions": Boolean($parameter.preconfirmSubscriptions) }) }}`,
 						encoding: 'json',
 						json: true,
 					},

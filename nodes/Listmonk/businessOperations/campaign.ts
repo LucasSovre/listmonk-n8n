@@ -96,7 +96,7 @@ export const campaignOperations: INodeProperties[] = [
 					request: {
 						method: 'PUT',
 						url: '=/campaigns/{{$parameter.id}}/status',
-						body: '={{JSON.stringify({"status":$parameter.campaignStatus})}}',
+						body: '={{ ({"status":$parameter.campaignStatus}) }}',
 						encoding: 'json',
 						json: true,
 					},

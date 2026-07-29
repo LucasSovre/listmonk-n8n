@@ -20,7 +20,7 @@ export const templateOperations: INodeProperties[] = [
 					request: {
 						method: 'POST',
 						url: '/templates',
-						body: `={{JSON.stringify({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body})}}`,
+						body: `={{ ({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body}) }}`,
 						encoding: 'json',
 						json: true,
 					},
@@ -78,7 +78,7 @@ export const templateOperations: INodeProperties[] = [
 					request: {
 						method: 'PUT',
 						url: '=/templates/{{$parameter.id}}',
-						body: `={{JSON.stringify({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body})}}`,
+						body: `={{ ({"name":$parameter.name, "type":$parameter.typeTemplate, "subject":$parameter.subject, "body":$parameter.body}) }}`,
 						encoding: 'json',
 						json: true,
 					},
