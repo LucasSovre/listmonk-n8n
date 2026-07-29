@@ -68,10 +68,10 @@ export const subscriberOperations: INodeProperties[] = [
 						method: 'GET',
 						url: '/subscribers',
 						qs: {
-							// SQL expression is injected raw by listmonk, so qualify the column and
-							// escape single quotes in the email
+							// listmonk injects this SQL expression raw, so qualify the column and strip
+							// everything that is not valid in an email address, quotes included
 							query:
-								'=subscribers.email = \'{{ $parameter.searchEmail.trim().toLowerCase().replaceAll("\'", "\'\'") }}\'',
+								'=subscribers.email = \'{{ $parameter.searchEmail.trim().toLowerCase().replace(/[^a-z0-9@._+-]/g, "") }}\'',
 						},
 					},
 				},
