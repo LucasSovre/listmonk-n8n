@@ -42,3 +42,23 @@ for (const property of new Listmonk().description.properties) {
 
 assert.ok(checked > 10, `expected to check every write operation, only saw ${checked}`);
 console.log(`ok - ${checked} routing bodies evaluate to objects`);
+
+// listmonk injects the "get by email" query expression straight into SQL, so the email must
+// never be able to carry a quote or whitespace out of the literal.
+const subscribers = new Listmonk().description.properties.find((p) =>
+	(p.options ?? []).some((o) => o.value === 'getByEmail'),
+);
+const queryExpression = subscribers.options.find((o) => o.value === 'getByEmail').routing.request.qs
+	.query;
+const sanitise = (email) =>
+	// eslint-disable-next-line no-new-func
+	new Function('$parameter', `return \`${queryExpression.slice(1).replace(/\{\{(.*?)\}\}/, '${$1}')}\`;`)({
+		searchEmail: email,
+	});
+
+assert.strictEqual(sanitise(' Djan@Djan.com '), "subscribers.email = 'djan@djan.com'");
+for (const attack of ["a' OR 1=1 --@x.com", "x';DROP TABLE subscribers;--@y.com", "a\\'@b.com"]) {
+	const sql = sanitise(attack);
+	assert.strictEqual(sql.split("'").length, 3, `injection escaped the literal: ${sql}`);
+}
+console.log('ok - get by email cannot break out of the SQL literal');
