@@ -271,6 +271,7 @@ export const listmonkOptions: INodeProperties[] = [
 	{
 		displayName: 'Email',
 		description: 'Subscriber email',
+		required: true,
 		name: 'subscriberEmail',
 		type: 'string',
 		default: '',
@@ -380,7 +381,7 @@ export const listmonkOptions: INodeProperties[] = [
 	},
 	{
 		displayName: 'Lists',
-		description: 'Lists to add the subscriber to',
+		description: 'List IDs to add the subscriber to, as a JSON array of numbers, e.g. [1,2]',
 		name: 'subscriberLists',
 		type: 'json',
 		default: '[]',
@@ -468,7 +469,7 @@ export const listmonkOptions: INodeProperties[] = [
 		displayName: 'Subscriber Email',
 		description: 'Search subscriber by email address. Although the email address in listmonk a unique field, it doesn\'t provide a direct API to get one the subscriber by email address. This method will return a list of subscribers if found, containing one element. On listmonk v3+, the API user needs the subscribers:sql_query permission.',
 		required: true,
-		name: 'subscriberEmail',
+		name: 'searchEmail',
 		type: 'string',
 		default: '',
 		displayOptions: {
