@@ -1,21 +1,22 @@
-
 name: Node.js Package
-
 on:
   release:
     types: [created]
+
+permissions:
+  id-token: write   # required — lets Actions mint the OIDC token
+  contents: read
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
-      - run: npm install
+      - run: npm install -g npm@latest   # ensure npm >= 11.5.1 for OIDC
+      - run: npm ci
       - run: npm run build
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
