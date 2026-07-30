@@ -34,9 +34,11 @@ This node allow to easily automate your listmonk functionalities :
 
 The credentials are basic auth, see the [official api doc](https://listmonk.app/docs/apis/apis/)
 
+On listmonk v3 and later, do not use your admin login. Create an API user under **Admin -> Users -> API users**, and use its name as *User* and its token as *Password*. Give that API user the `subscribers:sql_query` permission if you want to use the *Get by Email* operation, which filters with a SQL expression.
+
 ## Compatibility
 
-1.18.2 the minimum n8n version, as well as which versions you test against. You can also include any known version incompatibility issues.
+Tested against n8n 1.x with `n8n-workflow` 2.x, and listmonk v6. Node 20.15 or later is required to build.
 
 ## Usage
 
@@ -49,6 +51,7 @@ The credentials are basic auth, see the [official api doc](https://listmonk.app/
 
 ## Version history
 
+- 1.1 : Build against current n8n (`n8n-workflow` 2.x, TypeScript 5.8), credentials moved to `authenticate` with a credential test, and operations resynced with the listmonk v6 API — fixed "get subscriber by email" (qualified and escaped SQL expression), `GET /logs` (was POST, resource re-enabled), dropped the non-existent `disabled` subscriber status; added campaign "set status" and subscriber blocklist / bounces / opt-in
 - 1.0 : Include most of the API functionalities
 
 

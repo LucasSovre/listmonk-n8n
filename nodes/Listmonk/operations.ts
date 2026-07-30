@@ -176,7 +176,7 @@ export const transactionOperations: INodeProperties[] = [
 					request: {
 						method: 'POST',
 						url: '=/tx',
-						body: `={{JSON.stringify({"subscriber_id":Number($parameter.subscriberId), "template_id":Number($parameter.templateId), "from_email" : $parameter.senderEmail, "messenger": $parameter.messengerTx, content_type: $parameter.contentType, "data": JSON.parse($parameter.dataTx) })}}`,
+						body: `={{ ({"subscriber_id":Number($parameter.subscriberId), "template_id":Number($parameter.templateId), "from_email" : $parameter.senderEmail, "messenger": $parameter.messengerTx, content_type: $parameter.contentType, "data": JSON.parse($parameter.dataTx) }) }}`,
 						encoding: 'json',
 						json: true,
 					},
@@ -205,8 +205,8 @@ export const logsOperations: INodeProperties[] = [
 				action: 'Get the logs',
 				routing: {
 					request: {
-						method: 'POST',
-						url: '=/logs',
+						method: 'GET',
+						url: '/logs',
 					},
 				},
 			},

@@ -1,10 +1,9 @@
-import { INodeType, INodeTypeDescription } from 'n8n-workflow';
-//@ts-ignores
+import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
 import {
 	utilsOperations,
 	settingsOperations,
 	adminOperations,
-	//logsOperations,
+	logsOperations,
 	transactionOperations,
 } from './operations';
 import { listOperations } from './businessOperations/listOperations';
@@ -41,17 +40,13 @@ export class Listmonk implements INodeType {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 			},
-			auth: {
-				username: '={{$credentials.user}}',
-				password: '={{$credentials.password}}',
-			},
 		},
 		properties: [
 			resources,
 			...utilsOperations,
 			...settingsOperations,
 			...adminOperations,
-			//...logsOperations,
+			...logsOperations,
 			...listmonkOptions,
 			...listOperations,
 			...campaignOperations,

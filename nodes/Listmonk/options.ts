@@ -67,7 +67,7 @@ export const listmonkOptions: INodeProperties[] = [
 		name: 'body', // The name used to reference the element UI within the code
 		type: 'string',
 		typeOptions: {
-			editor: 'code',
+			editor: 'htmlEditor',
 		},
 		default: '', // Loads n8n's placeholder HTML template
 		noDataExpression: true, // Prevent using an expression for the field
@@ -171,6 +171,10 @@ export const listmonkOptions: INodeProperties[] = [
 					'setTemplateAsDefault',
 					'geSubscriberById',
 					'deleteSubscriber',
+					'setCampaignStatus',
+					'blocklistSubscriber',
+					'getSubscriberBounces',
+					'sendSubscriberOptin',
 				],
 			},
 		},
@@ -267,6 +271,7 @@ export const listmonkOptions: INodeProperties[] = [
 	{
 		displayName: 'Email',
 		description: 'Subscriber email',
+		required: true,
 		name: 'subscriberEmail',
 		type: 'string',
 		default: '',
@@ -284,10 +289,6 @@ export const listmonkOptions: INodeProperties[] = [
 			{
 				name: 'Enabled',
 				value: 'enabled',
-			},
-			{
-				name: 'Disabled',
-				value: 'disabled',
 			},
 			{
 				name: 'Blocklisted',
@@ -380,7 +381,7 @@ export const listmonkOptions: INodeProperties[] = [
 	},
 	{
 		displayName: 'Lists',
-		description: 'Lists to add the subscriber to',
+		description: 'List IDs to add the subscriber to, as a JSON array of numbers, e.g. [1,2]',
 		name: 'subscriberLists',
 		type: 'json',
 		default: '[]',
@@ -429,10 +430,46 @@ export const listmonkOptions: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Subscriber Email',
-		description: 'Search subscriber by email address. Although the email address in listmonk a unique field, it doesn\'t provide a direct API to get one the subscriber by email address. This method will return a list of subscribers if found, containing one element.',
+		displayName: 'Status',
+		name: 'campaignStatus',
+		type: 'options',
 		required: true,
-		name: 'subscriberEmail',
+		options: [
+			{
+				name: 'Cancelled',
+				value: 'cancelled',
+			},
+			{
+				name: 'Draft',
+				value: 'draft',
+			},
+			{
+				name: 'Paused',
+				value: 'paused',
+			},
+			{
+				name: 'Running',
+				value: 'running',
+			},
+			{
+				name: 'Scheduled',
+				value: 'scheduled',
+			},
+		],
+		default: 'running',
+		description:
+			'Allowed transitions: scheduled to draft, draft to scheduled, draft or paused to running, running to paused or cancelled',
+		displayOptions: {
+			show: {
+				operation: ['setCampaignStatus'],
+			},
+		},
+	},
+	{
+		displayName: 'Subscriber Email',
+		description: 'Search subscriber by email address. Although the email address in listmonk a unique field, it doesn\'t provide a direct API to get one the subscriber by email address. This method will return a list of subscribers if found, containing one element. On listmonk v3+, the API user needs the subscribers:sql_query permission.',
+		required: true,
+		name: 'searchEmail',
 		type: 'string',
 		default: '',
 		displayOptions: {
